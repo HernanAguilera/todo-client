@@ -4,5 +4,6 @@
 <input #name
        id="name"
        type="text"
-       class="form-control"
-       (keyup.enter)="newTask(name.value)">
+       class="form-control form-control-sm"
+       placeholder="Escriba la tarea y presione enter crearla"
+       (keyup.enter)="newTask(name)">
