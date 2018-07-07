@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
+import { TaskInterface } from '../interfaces/task.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,6 @@ export class TasksService {
   constructor(private http: HttpClient) { }
 
   getList() {
-    return this.http.get(this.urlBase + '/tasks');
+    return this.http.get<TaskInterface[]>(this.urlBase + '/tasks');
   }
 }
