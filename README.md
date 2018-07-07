@@ -15,7 +15,7 @@ git clone https://github.com/HernanAguilera/todo-client.git
 2. Entrar en el directorio
 
 ```
-cd todo-api
+cd todo-client
 ```
 
 3. Instalar dependencias
