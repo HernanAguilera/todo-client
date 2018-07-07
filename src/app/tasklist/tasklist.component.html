@@ -1,3 +1,5 @@
+<input #filter class="form-control" type="text" (keyup)="applyFilter(filter.value)" placeholder="Buscar...">
+<hr>
 <ul>
   <li *ngFor="let task of tasks">
     <app-taskelement [task]="task" (deleted)="getTasks()"></app-taskelement>

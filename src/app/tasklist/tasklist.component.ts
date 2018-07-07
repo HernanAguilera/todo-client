@@ -10,6 +10,7 @@ import { TaskInterface } from '../interfaces/task.interface';
 export class TasklistComponent implements OnInit {
 
   tasks: TaskInterface[];
+  originalTasks: TaskInterface[];
 
   constructor(private taskService: TasksService) { }
 
@@ -19,11 +20,16 @@ export class TasklistComponent implements OnInit {
 
   getTasks() {
     this.taskService.getList().subscribe((tasks: TaskInterface[]) => {
-      this.tasks = tasks;
+      this.originalTasks = tasks;
+      this.applyFilter('');
     }, (error) => {
       alert('Se ha producido un error al internatar cargar la lista de tareas :-(');
       console.log(error);
     })
+  }
+
+  applyFilter(value: string) {
+    this.tasks = this.originalTasks.filter(ele => ele.name.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) > -1)
   }
 
 }
