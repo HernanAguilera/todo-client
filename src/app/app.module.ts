@@ -6,11 +6,13 @@ import { TasksService } from './services/tasks.service';
 
 import { AppComponent } from './app.component';
 import { TasklistComponent } from './tasklist/tasklist.component';
+import { TaskcreateComponent } from './taskcreate/taskcreate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TasklistComponent
+    TasklistComponent,
+    TaskcreateComponent
   ],
   imports: [
     BrowserModule,

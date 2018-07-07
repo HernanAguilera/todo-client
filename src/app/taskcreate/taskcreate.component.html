@@ -1,0 +1,8 @@
+<label for="name" >
+  Nueva tarea:
+</label>
+<input #name
+       id="name"
+       type="text"
+       class="form-control"
+       (keyup.enter)="newTask(name.value)">

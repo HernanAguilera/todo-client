@@ -14,8 +14,15 @@ export class TasklistComponent implements OnInit {
   constructor(private taskService: TasksService) { }
 
   ngOnInit() {
+    this.getTasks()
+  }
+
+  getTasks() {
     this.taskService.getList().subscribe((tasks: TaskInterface[]) => {
       this.tasks = tasks;
+    }, (error) => {
+      alert('Se ha producido un error al internatar cargar la lista de tareas :-(');
+      console.log(error);
     })
   }
 

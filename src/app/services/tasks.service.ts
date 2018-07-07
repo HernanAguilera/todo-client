@@ -15,4 +15,8 @@ export class TasksService {
   getList() {
     return this.http.get<TaskInterface[]>(this.urlBase + '/tasks');
   }
+
+  create(name: String) {
+    return this.http.post(this.urlBase + '/tasks', {name: name});
+  }
 }
