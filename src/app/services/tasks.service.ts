@@ -19,4 +19,8 @@ export class TasksService {
   create(name: String) {
     return this.http.post(this.urlBase + '/tasks', {name: name});
   }
+
+  delete(id) {
+    return this.http.delete(this.urlBase + '/tasks/' + id);
+  }
 }
