@@ -16,9 +16,10 @@ export class TaskcreateComponent implements OnInit {
   ngOnInit() {
   }
 
-  newTask(value: string) {
-    this.tasksService.create(value).subscribe((res) => {
+  newTask(input) {
+    this.tasksService.create(input.value).subscribe((res) => {
       this.created.emit(null);
+      input.value = '';
     }, (error) => {
       alert('Se ha producido un error al intentar crear la tarea');
       console.log(error);
