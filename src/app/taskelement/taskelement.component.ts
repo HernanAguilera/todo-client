@@ -19,12 +19,25 @@ export class TaskelementComponent implements OnInit {
   ngOnInit() {
   }
 
-  delete () {
-    this.tasksService.delete(this.task._id).subscribe((res) => {
-      this.deleted.emit(null);
+  done(checkbox) {
+    checkbox.disabled = true;
+    this.tasksService.update(this.task._id, {done: checkbox.checked}).subscribe((res: TaskInterface) => {
+      this.task.done = res.done;
+      checkbox.disabled = false;
     }, (error) => {
       console.log(error);
+      checkbox.disabled = false;
     })
+  }
+
+  delete () {
+    if(confirm(`Está seguro que desea eliminar la tarea "${this.task.name}"`)){
+      this.tasksService.delete(this.task._id).subscribe((res) => {
+        this.deleted.emit(null);
+      }, (error) => {
+        console.log(error);
+      })
+    }
   }
 
 }

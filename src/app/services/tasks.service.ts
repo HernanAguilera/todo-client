@@ -20,6 +20,10 @@ export class TasksService {
     return this.http.post(this.urlBase + '/tasks', {name: name});
   }
 
+  update(id, data) {
+    return this.http.put(this.urlBase + '/tasks/' + id, data);
+  }
+
   delete(id) {
     return this.http.delete(this.urlBase + '/tasks/' + id);
   }

@@ -1,2 +1,5 @@
-<span>({{task._id}}) {{task.name}}</span> &nbsp;
+<span [ngStyle]="{'text-decoration': task.done ? 'line-through': 'inherit'}">
+  {{task.name}}
+</span> &nbsp;
+<input #hecho type="checkbox" [checked]="task.done" (change)="done(hecho)"> &nbsp;
 <a style="color:red;" href="#" (click)="delete()">X</a>
